@@ -1,5 +1,6 @@
 
 # main frameworks 
+from concurrent.futures import thread
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -118,8 +119,7 @@ class multithread_grid_search:
         gamma = np.unique( gamma )
         eps = np.unique( eps )
 
-        print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
-        
+        #print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
 
         # grid search across the given hyperparameters
         svr_param = {
@@ -193,10 +193,10 @@ class multithread_grid_search:
                 # indexes for the hyperparameters
                 idx_start = i * self.__max_comb
                 idx_stop = ((i+1) * self.__max_comb)
-                print( idx_start )
+                # print( idx_start )
                 if idx_stop > self.__n_comb:
                     idx_stop = self.__n_comb
-                print( idx_stop )
+                # print( idx_stop )
                 
                 # create the allocaton space
                 # https://stackoverflow.com/questions/10712002/create-an-empty-list-with-certain-size-in-python
@@ -261,10 +261,10 @@ class multithread_grid_search:
             temp_g = np.unique( temp_g )
             temp_e = np.unique( temp_e )
 
+            '''
             print( "temp_c : \n", temp_c )
             print( "temp_g : \n", temp_g )
             print( "temp_e : \n", temp_e )
-            '''
             print( "temp_c : \n", temp_c.shape )
             print( "temp_g : \n", temp_g.shape )
             print( "temp_e : \n", temp_e.shape )
@@ -280,6 +280,77 @@ class multithread_grid_search:
                 
                 # the cycle ends
                 break
-            
+
             else:
                 iter = iter + 1
+
+
+
+class multiout_grid_search:
+    ''' execute one grid search for output column, in parallel
+        using Python threads.
+    
+    '''
+
+    def __init__( self ):
+        ''' costructor: init the class
+        
+        '''
+        self.mgs_list = []
+        self.params = []
+
+        self.__thread_list = []
+        self.__X = []
+        self.__y = []
+    
+
+    def __s_thread( self, idx, C, gamma, epsilon, n_comb ):
+        ''' model search for one coordinate
+        
+        args:
+            col: the column to use in the thread
+        '''
+
+        print( " [multiout_grid_search] ", f"(thread {idx+1}) START" )
+
+        ms = multithread_grid_search( )
+        ms.set_search( C, gamma, epsilon, max_comb_per_thread=n_comb )
+        ms.search_model( self.__X, self.__y[:, idx], verbose=True )
+
+        print( " [multiout_grid_search] ", f"(thread {idx+1}) SAVING MODEL" )
+
+        self.params[idx]['C'] = ms.params['C']
+        self.params[idx]['gamma'] = ms.params['gamma']
+        self.params[idx]['epsilon'] = ms.params['epsilon']
+
+        print( " [multiout_grid_search] ", f"(thread {idx+1}) STOP" )
+    
+    
+    def search( self, X, y, C, gamma, epsilon, n_comb ):
+        ''' for each y column to predict, make a parameter search
+        
+        '''
+
+        # make the sets globally available inside the class
+        self.__X = X
+        self.__y = y
+
+        # create the thread objects
+        for i in range( 0, y.shape[1] ):
+            t = threading.Thread(
+                target = self.__s_thread,
+                args = ( i, C, gamma, epsilon, n_comb ),
+                daemon = True
+            )
+
+            self.__thread_list.append( t )
+            self.mgs_list.append( None )
+            self.params.append( {'C':0.0, 'gamma':0.0, 'epsilon':0.0} )
+        
+        # start the threads
+        for t in self.__thread_list:
+            t.start( )
+        
+        # wait until completion
+        for t in self.__thread_list:
+            t.join( )

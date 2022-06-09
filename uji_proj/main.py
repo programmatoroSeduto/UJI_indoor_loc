@@ -72,11 +72,10 @@ if __name__ == "__main__":
 
 	# model search
 	print( "MODEL SEARCH" )
-	ms = multithread_grid_search( )
 	C = np.array( [1, 2] )
 	gamma = np.array( [3, 4] )
 	epsilon = np.array( [5] )
-	ms.set_search( C, gamma, epsilon, max_comb_per_thread=3 )
-	ms.search_model( ds_tr.X, ds_tr.Y[:, 0], verbose=True )
+	mo = multiout_grid_search( )
+	mo.search( ds_tr.X, ds_tr.Y, C, gamma, epsilon, 3 )
 	print( "model search OK" )
-	print( "params: ", ms.params )
+	print( "params: ", mo.params )
