@@ -77,6 +77,7 @@ print( " long: ", LM_long )
 
 figt, axt = plt.subplots( nrows=2 )
 
+
 figt.suptitle( "Alpha Coefficients of SVR" )
 
 axt[0].grid( True )
