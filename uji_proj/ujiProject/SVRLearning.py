@@ -22,8 +22,6 @@ class multithread_grid_search:
     
     THe class implements a iterative way of using GridSearch in SciKitLearn
     which also uses multithreading in order to save a bit of time.
-
-    The implementation of the class is tailored for the uji problem. 
     '''
 
     def __init__( self ):
@@ -95,6 +93,10 @@ class multithread_grid_search:
         # read to search
         self.__search_set = True
 
+        print( "[multithread_model_search]", "n combinations: ", self.__n_comb )
+        print( "[multithread_model_search]", "max combinations: ", self.__max_comb )
+        print( "[multithread_model_search]", "ready for the model search" )
+
 
     def __s_thread( self, idx, C, gamma, eps, cv, verbose=False ):
         '''(private) implementation of one GridSearch thread.
@@ -115,6 +117,7 @@ class multithread_grid_search:
         }
 
         for i in range( 0, self.__y_train.shape[1] ):
+            print( "[multithread_model_Search] ", f"(thread {idx}) searching for coord. {i} out of {self.__y_train.shape[1]}" )
             H_params = model_selection.GridSearchCV( 
                 estimator  = svm.SVR( kernel='rbf' ),
                 param_grid = svr_param,
@@ -151,6 +154,7 @@ class multithread_grid_search:
         
         # the algorithm
         # while self.__n_comb > self.__max_comb:
+        iter = 1
         while True:
 
             # empty the return space
@@ -195,6 +199,8 @@ class multithread_grid_search:
 
                 # append the thread 
                 thread_list.append( t )
+            
+            print( "[multithread_model_Search] ", f"=== ITERATION {iter} launching {n_thread} threads for {self.__n_comb} combination (max is {self.__max_comb})")
 
             # start the threads
             for i in range( 0, n_thread ):
@@ -223,6 +229,8 @@ class multithread_grid_search:
             # check for stop condition
             if self.__n_comb == 1:
                 break
+            else:
+                iter = iter + 1
 
         # found "the best" combination
         for i in range( 0, y.shape[1] ):

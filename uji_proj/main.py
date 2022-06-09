@@ -21,8 +21,6 @@ from ujiProject.SVRLearning import *
 # per il salvataggio del modello su file
 import pickle as pk
 
-from uji_proj.ujiProject import SVRLearning
-
 if __name__ == "__main__":
 	# data loading
 	print( "loading file: ", uji_paths.path_training_set )
@@ -61,6 +59,7 @@ if __name__ == "__main__":
 	print( "Data normalization OK" )
 
 	# save the datasets before starting the work
+	'''
 	print( "writing data on files..." )
 	ds_tr.save_data( uji_paths.results_path, "tr_", index=False, add_timestamp=False )
 	ds_tt.save_data( uji_paths.results_path, "tt_", index=False, add_timestamp=False )
@@ -68,10 +67,11 @@ if __name__ == "__main__":
 	ds_tr.save_data_on_file( uji_paths.results_path + "/ds_tr.sav" )
 	ds_tt.save_data_on_file( uji_paths.results_path + "/ds_tt.sav" )
 	print( "files OK" )
+	'''
 
 	# model search
 	print( "MODEL SEARCH" )
-	ms = SVRLearning.multithread_grid_search( )
+	ms = multithread_grid_search( )
 	C = [1, 2]
 	gamma = [.1, .2]
 	epsilon = [.0, .01]
