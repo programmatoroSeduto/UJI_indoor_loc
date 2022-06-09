@@ -1,7 +1,5 @@
 
 # main frameworks 
-from fileinput import _HasReadlineAndFileno
-from tracemalloc import stop
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -82,20 +80,31 @@ class multithread_grid_search:
         self.__max_comb = max_comb_per_thread
         
         # generate the combinations (brute force)
-        self.__n_comb = C.shape[0] * gamma.shape[0] * epsilon[0]
+        '''
+        print( C.shape )
+        print( gamma.shape )
+        print( epsilon.shape )
+        print( C.shape[0] * gamma.shape[0] * epsilon.shape[0] )
+        '''
+        # TODO update with a more clever method for generating the combinations
+        self.__n_comb = C.shape[0] * gamma.shape[0] * epsilon.shape[0]
         for c in C:
             for g in gamma:
                 for e in epsilon:
                     self.__C.append( c )
                     self.__gamma.append( g )
                     self.__eps.append( e )
+        
+        # print( self.__C )
+        # print( self.__gamma )
+        # print( self.__eps )
 
         # read to search
         self.__search_set = True
 
-        print( "[multithread_model_search]", "n combinations: ", self.__n_comb )
-        print( "[multithread_model_search]", "max combinations: ", self.__max_comb )
-        print( "[multithread_model_search]", "ready for the model search" )
+        print( " [multithread_grid_Search]", "n combinations: ", self.__n_comb )
+        print( " [multithread_grid_Search]", "max combinations: ", self.__max_comb )
+        print( " [multithread_grid_Search]", "ready for the model search" )
 
 
     def __s_thread( self, idx, C, gamma, eps, cv, verbose=False ):
@@ -109,6 +118,9 @@ class multithread_grid_search:
         gamma = np.unique( gamma )
         eps = np.unique( eps )
 
+        print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
+        
+
         # grid search across the given hyperparameters
         svr_param = {
             'C'       : C,
@@ -116,19 +128,20 @@ class multithread_grid_search:
             'epsilon' : eps
         }
 
-        for i in range( 0, self.__y_train.shape[1] ):
-            print( "[multithread_model_Search] ", f"(thread {idx}) searching for coord. {i} out of {self.__y_train.shape[1]}" )
-            H_params = model_selection.GridSearchCV( 
-                estimator  = svm.SVR( kernel='rbf' ),
-                param_grid = svr_param,
-                scoring    = 'neg_mean_absolute_error',
-                cv         = 2,
-                verbose    = ( 2 if verbose else 0 )
-            ).fit( self.__X_train, self.__y_train[:, i] )
+        print( " [multithread_grid_Search] ", f"(thread {idx+1}) JOB BEGINNING, {C.shape[0]*gamma.shape[0]*eps.shape[0]} combinations to test" )
+        H_params = model_selection.GridSearchCV( 
+            estimator  = svm.SVR( kernel='rbf' ),
+            param_grid = svr_param,
+            scoring    = 'neg_mean_absolute_error',
+            cv         = 2,
+            verbose    = ( 2 if verbose else 0 )
+        ).fit( self.__X_train, self.__y_train )
 
-            # save the combination of parameters
-            #                       RACE CONDITIONS??????
-            self.__return_space[idx][i] = H_params
+        # save the combination of parameters
+        #                       RACE CONDITIONS??????
+        self.__return_space[idx] = H_params
+        
+        print( " [multithread_grid_Search] ", f"(thread {idx+1}) END OF THE JOB."  )
 
 
     def search_model( self, X, y, perc_train=.25, perc_test=.10, n_cross_val=2, verbose=False ):
@@ -142,12 +155,16 @@ class multithread_grid_search:
         The second step will need 20/5 = 4 threads to go. At the end of this 
         iteration, 4 different combinations will be provided; 4 < 5 so only one
         thread is required to end the job. 
+
+        Note:
+            this implementation is not able to manage multiple outputs
+            so far. the vector y must be one-dimensional.
         '''
         
         # check if the search has been set
         if not self.__search_set:
             print( "ERROR: search not set! call .search_set() before calling search_model()" )
-            return False
+            return
         
         n_tr = int( X.shape[0] * perc_train )
         # n_tt = int( X.shape[0] * perc_test  )
@@ -163,7 +180,7 @@ class multithread_grid_search:
             # select some rows of the set for training
             idx_tt = self.rng.permutation( X.shape[0] )
             self.__X_train = X[ idx_tt[0:n_tr], : ]
-            self.__y_train = y[ idx_tt[0:n_tr], : ]
+            self.__y_train = y[ idx_tt[0:n_tr] ]
 
             # number of threads?
             n_thread = 1
@@ -175,17 +192,27 @@ class multithread_grid_search:
             for i in range( 0, n_thread ):
                 # indexes for the hyperparameters
                 idx_start = i * self.__max_comb
-                idx_stop = (i+1) * self.__max_comb
+                idx_stop = ((i+1) * self.__max_comb)
+                print( idx_start )
                 if idx_stop > self.__n_comb:
                     idx_stop = self.__n_comb
+                print( idx_stop )
                 
                 # create the allocaton space
                 # https://stackoverflow.com/questions/10712002/create-an-empty-list-with-certain-size-in-python
-                self.__return_space[i] = [None] * y.shape[1]
+                self.__return_space.append( None )
+
+                '''
+                print( 
+                    self.__C[idx_start:idx_stop], 
+                    self.__gamma[idx_start:idx_stop], 
+                    self.__eps[idx_start:idx_stop]
+                )
+                '''
 
                 # create the thread
                 t = t = threading.Thread( 
-                    target = self.__s_thread ,
+                    target = self.__s_thread,
                     args = (
                         i, 
                         self.__C[idx_start:idx_stop], 
@@ -193,45 +220,66 @@ class multithread_grid_search:
                         self.__eps[idx_start:idx_stop],
                         n_cross_val,
                         verbose
-                        ) ,
+                        ),
                     daemon = True
                 )
 
                 # append the thread 
                 thread_list.append( t )
             
-            print( "[multithread_model_Search] ", f"=== ITERATION {iter} launching {n_thread} threads for {self.__n_comb} combination (max is {self.__max_comb})")
+            print( " [multithread_grid_Search] ", f"=== ITERATION {iter} launching {n_thread} threads for {self.__n_comb} combination (max is {self.__max_comb})")
 
             # start the threads
             for i in range( 0, n_thread ):
-                t.start( )
+                thread_list[i].start( )
 
             # wait for the thread to end
-            for i in np.shuffle( range( 0, n_thread ) ):
+            for i in range( 0, n_thread ):
                 thread_list[i].join( )
+            thread_list.clear( )
 
             # replace the constants and reset the search
-            temp_c = []
-            temp_g = []
-            temp_e = []
+            temp_c = np.zeros( (n_thread,) )
+            temp_g = np.zeros( (n_thread,) )
+            temp_e = np.zeros( (n_thread,) )
             for i in range( 0, n_thread ):
-                temp_c.append( [ H.best_params_['C'] for H in self.__return_space[i] ] )
-                temp_g.append( [ H.best_params_['gamma'] for H in self.__return_space[i] ] )
-                temp_e.append( [ H.best_params_['epsilon'] for H in self.__return_space[i] ] )
-            for i in range( 0, y.shape[1] ):
-                temp_c[i, :] = np.unique( temp_c[i, :] )
-                temp_g[i, :] = np.unique( temp_g[i, :] )
-                temp_e[i, :] = np.unique( temp_e[i, :] )
-            
+                temp_c[i] = self.__return_space[i].best_params_['C']
+                temp_g[i] = self.__return_space[i].best_params_['gamma']
+                temp_e[i] = self.__return_space[i].best_params_['epsilon']
+            '''
+            print( "temp_c : \n", temp_c )
+            print( "temp_g : \n", temp_g )
+            print( "temp_e : \n", temp_e )
+            print( "temp_c : \n", temp_c.shape )
+            print( "temp_g : \n", temp_g.shape )
+            print( "temp_e : \n", temp_e.shape )
+            print( "temp_c : \n", np.unique( temp_c, axis=0 ) )
+            print( "temp_g : \n", np.unique( temp_g, axis=0 ) )
+            print( "temp_e : \n", np.unique( temp_e, axis=0 ) )
+            '''
+            temp_c = np.unique( temp_c )
+            temp_g = np.unique( temp_g )
+            temp_e = np.unique( temp_e )
+
+            print( "temp_c : \n", temp_c )
+            print( "temp_g : \n", temp_g )
+            print( "temp_e : \n", temp_e )
+            '''
+            print( "temp_c : \n", temp_c.shape )
+            print( "temp_g : \n", temp_g.shape )
+            print( "temp_e : \n", temp_e.shape )
+            '''
+
             # reset the search settings
             self.set_search( temp_c, temp_g, temp_e, self.__max_comb )
 
             # check for stop condition
             if self.__n_comb == 1:
+                # found "the best" combination
+                self.params = { 'C' : temp_c[0] , 'gamma' : temp_g[0], 'epsilon' : temp_e[0] }
+                
+                # the cycle ends
                 break
+            
             else:
                 iter = iter + 1
-
-        # found "the best" combination
-        for i in range( 0, y.shape[1] ):
-            self.params.append( self.__return_space[0, i] )

@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 
 # main frameworks
+from tabnanny import verbose
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -72,10 +73,10 @@ if __name__ == "__main__":
 	# model search
 	print( "MODEL SEARCH" )
 	ms = multithread_grid_search( )
-	C = [1, 2]
-	gamma = [.1, .2]
-	epsilon = [.0, .01]
-	ms.set_search( C, gamma, epsilon )
-	ms.search_model( ds_tr.X, ds_tr.y )
+	C = np.array( [1, 2] )
+	gamma = np.array( [3, 4] )
+	epsilon = np.array( [5] )
+	ms.set_search( C, gamma, epsilon, max_comb_per_thread=3 )
+	ms.search_model( ds_tr.X, ds_tr.Y[:, 0], verbose=True )
 	print( "model search OK" )
 	print( "params: ", ms.params )
