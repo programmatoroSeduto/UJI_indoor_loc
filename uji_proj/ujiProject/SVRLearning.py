@@ -15,6 +15,8 @@ import sklearn.metrics as metrics
 # other libs
 import threading
 
+from ujiProject.time_utils import time_utils
+
 
 class multithread_grid_search:
     '''Model Selecton for SVR using python threading.
@@ -119,14 +121,28 @@ class multithread_grid_search:
         gamma = np.unique( gamma )
         eps = np.unique( eps )
 
-        #print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
-
-        # grid search across the given hyperparameters
         svr_param = {
             'C'       : C,
             'gamma'   : gamma,
             'epsilon' : eps
         }
+
+        if (len(C) * len(gamma) * len(eps) == 1):
+            print( " [multithread_grid_Search] ", f"(thread {idx+1}) received only 1 combination! closing..." )
+            H_params = model_selection.GridSearchCV( estimator=svm.SVR(), param_grid = svr_param )
+            H_params.best_params_ = {}
+            H_params.best_params_['C'] = C[0]
+            H_params.best_params_['gamma'] = gamma[0]
+            H_params.best_params_['epsilon'] = eps[0]
+
+            # save the combination of parameters
+            #                       RACE CONDITIONS??????
+            self.__return_space[idx] = H_params
+
+            # close the thread
+            return
+
+        #print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
 
         print( " [multithread_grid_Search] ", f"(thread {idx+1}) JOB BEGINNING, {C.shape[0]*gamma.shape[0]*eps.shape[0]} combinations to test" )
         H_params = model_selection.GridSearchCV( 
@@ -354,3 +370,97 @@ class multiout_grid_search:
         # wait until completion
         for t in self.__thread_list:
             t.join( )
+
+
+class multithread_SVR_learning:
+    ''' simple multithread implementation of the training phase
+    
+    '''
+
+    def __init__(self):
+        ''' constructor
+        
+        '''
+        
+        # list of threads for the training
+        self.__thread_list = []
+
+        # list of learning machines from the threads
+        self.__lm_list = []
+
+        # data sets
+        self.__X = []
+        self.__Y = []
+
+
+
+    def __s_thread( self, idx, params ):
+        '''perform the SVR training
+        
+        '''
+
+        # inner timer of the thread
+        tmu = time_utils( )
+        print( " [multithread_SVR_learning] ", f"(thread {idx+1}) starting the SVR trainig phase ..." )
+
+        # training
+        tmu.start( )
+        lm = svm.SVR( 
+            kernel = 'rbf',
+            C = params['C'],
+            gamma = params['gamma'],
+            epsilon = params['epsilon'] 
+        ).fit( self.__X, self.__Y[:, idx] )
+        tmu.stop( print_val=False )
+
+        print( " [multithread_SVR_learning] ", f"(thread {idx+1}) training completed in {tmu.value}s" )
+
+        # save the results
+        #        RACE CONDITION?????????????
+        self.__lm_list[idx] = lm
+
+
+    def train( self, X, y, params ):
+        ''' create a thread for each training
+        
+        Args:
+            X (np.array)
+            y (np.array)
+            params (list of dicts{'C', 'gamma', 'epsilon'})
+        
+        Returns:
+            a list of learners
+        '''
+        tmu = time_utils( )
+
+        self.__X = X
+        self.__Y = y
+        
+        # setup the threads
+        for i in range( 0, y.shape[1] ):
+            t = threading.Thread(
+                target = self.__s_thread,
+                args=( i, params[i] ),
+                daemon=True
+            )
+
+            self.__thread_list.append( t )
+
+            # prepare data allocation
+            self.__lm_list.append( svm.SVR( ) )
+        
+        # start the threads
+        print( " [multithread_SVR_learning] ", f"starting {y.shape[1]} threads ..." )
+        tmu.start( )
+        for th in self.__thread_list:
+            th.start( )
+        
+        # wait the threads
+        print( " [multithread_SVR_learning] waiting for threads ..." )
+        for th in self.__thread_list:
+            th.join( )
+        tmu.stop( print_val=False )
+        
+        print( f" [multithread_SVR_learning] end of the training process in {tmu.value}s" )
+
+        return self.__lm_list
