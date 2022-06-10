@@ -1,0 +1,652 @@
+loading file:  ../dataset/TrainingData.csv
+loading file:  ../dataset/ValidationData.csv
+loading OK
+done in 1.22s
+Fitting the scaler...
+scaler fitting OK
+done in 0.07s
+selecting and shuffling data sets ...
+data split OK
+done in 0.43s
+Data normalization
+Data normalization OK
+done in 0.06s
+done in 0.0s
+MODEL SEARCH
+ [multiout_grid_search]  (thread 1) START
+ [multithread_grid_Search] n combinations:  72
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 2) START
+ [multithread_grid_Search] n combinations:  72
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 1 launching 9 threads for 72 combination (max is 8)
+ [multithread_grid_Search]  === ITERATION 1 launching 9 threads for 72 combination (max is 8)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 8 combinations to test
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 16 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 16 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 4) JOB BEGINNING, 8 combinations to test
+ [multithread_grid_Search]  (thread 5) JOB BEGINNING, 16 combinations to test
+ [multithread_grid_Search]  (thread 4) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 6) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 5) JOB BEGINNING, 16 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+ [multithread_grid_Search]  (thread 7) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 6) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 7) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 8) JOB BEGINNING, 16 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+ [multithread_grid_Search]  (thread 8) JOB BEGINNING, 16 combinations to test
+ [multithread_grid_Search]  (thread 9) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 9) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 16 candidates, totalling 32 fits
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  24.3s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=  24.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  24.6s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  25.2s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  25.1s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  25.4s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=  25.3s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  25.4s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=  25.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  25.7s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  25.3s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=  26.0s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  26.3s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  26.3s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=  26.1s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=  26.3s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  26.9s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  26.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  24.5s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=  24.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  23.0s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time= -21.1s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  24.6s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  24.3s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=  24.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  24.0s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  24.5s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  23.7s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=  24.7s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=  23.5s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=  24.0s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  24.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=  23.8s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=  25.0s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=  25.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=  25.7s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  21.5s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  21.1s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  21.4s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  21.5s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  21.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  22.6s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  22.1s
+[CV] END .......C=4.6, epsilon=0.0, gamma=2.8000000000000003; total time=  22.0s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  23.1s
+[CV] END .......C=1.0, epsilon=0.0, gamma=2.8000000000000003; total time=  23.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  22.8s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  22.0s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=2.8000000000000003; total time=  22.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  22.5s
+[CV] END .......C=4.6, epsilon=0.0, gamma=2.8000000000000003; total time=  22.9s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=2.8000000000000003; total time=  23.6s
+[CV] END .......C=1.0, epsilon=0.0, gamma=2.8000000000000003; total time=  23.7s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  22.6s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  25.6s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  25.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  25.8s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  25.5s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  25.5s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  24.8s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  26.2s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  25.9s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=1.0; total time=  26.7s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  26.5s
+[CV] END .......C=1.0, epsilon=0.0, gamma=2.8000000000000003; total time=  26.7s
+[CV] END .......C=4.6, epsilon=0.0, gamma=2.8000000000000003; total time=  26.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=1.0; total time=  27.6s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=2.8000000000000003; total time=  27.4s
+[CV] END .......C=4.6, epsilon=0.0, gamma=2.8000000000000003; total time=  27.3s
+[CV] END .......C=1.0, epsilon=0.0, gamma=2.8000000000000003; total time=  26.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=1.0; total time=  26.3s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=2.8000000000000003; total time=  27.3s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=  23.6s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=  23.0s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=  23.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=3.7; total time=  24.9s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=3.7; total time=  25.0s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=  24.2s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=  23.8s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=3.7; total time=  24.8s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=  24.5s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=  24.9s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=3.7; total time=  25.2s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=3.7; total time=  26.3s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=  24.8s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=3.7; total time=  25.3s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=  23.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=  24.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=  24.4s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=  26.1s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=  21.2s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=  20.9s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=  21.7s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=  23.3s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=  23.0s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=3.7; total time=  23.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=3.7; total time=  24.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=3.7; total time=  23.2s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=  24.0s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=  22.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=3.7; total time=  24.3s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=  24.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=  24.1s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=  24.1s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=  23.8s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=3.7; total time=  25.0s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=3.7; total time=  26.1s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=  24.5s
+[CV] END .......C=0.1, epsilon=0.0, gamma=2.8000000000000003; total time=  22.9s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=2.8000000000000003; total time=  23.5s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=2.8000000000000003; total time=  24.2s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=4.6; total time=  22.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=  23.1s
+[CV] END .......C=0.1, epsilon=0.0, gamma=2.8000000000000003; total time=  25.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=4.6; total time=  25.8s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=4.6; total time=  24.8s
+[CV] END .......C=3.7, epsilon=0.0, gamma=2.8000000000000003; total time=  27.1s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=4.6; total time=  24.4s
+[CV] END .......C=3.7, epsilon=0.0, gamma=2.8000000000000003; total time=  25.1s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=  25.0s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=  24.8s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=  25.9s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=4.6; total time=  25.6s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=  24.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=4.6; total time=  26.2s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=  26.5s
+[CV] END .......C=0.1, epsilon=0.0, gamma=2.8000000000000003; total time=  25.4s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=2.8000000000000003; total time=  25.6s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=2.8000000000000003; total time=  26.2s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=4.6; total time=  26.2s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=  25.2s
+[CV] END .......C=3.7, epsilon=0.0, gamma=2.8000000000000003; total time=  24.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=4.6; total time=  25.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=4.6; total time=  26.2s
+[CV] END .......C=3.7, epsilon=0.0, gamma=2.8000000000000003; total time=  24.8s
+[CV] END .......C=0.1, epsilon=0.0, gamma=2.8000000000000003; total time=  27.3s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=4.6; total time=  26.4s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=  26.7s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=  25.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=  27.1s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=  26.8s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=4.6; total time=  27.6s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=4.6; total time=  27.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=  27.6s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  31.5s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  31.3s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  31.7s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  30.8s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=  29.8s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  29.7s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  30.5s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  29.6s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  30.5s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  30.1s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  29.9s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=  29.2s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=  28.2s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=  29.6s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=  27.8s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  27.4s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=  27.6s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  28.3s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  20.4s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  20.9s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  22.6s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  22.4s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=  22.7s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  23.6s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  24.1s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  24.2s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  24.9s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=  24.2s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  25.4s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=  25.1s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=  25.3s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=  24.0s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=  23.8s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=  25.9s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=  25.9s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=  25.9s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  26.4s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  25.5s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  26.0s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  25.0s
+[CV] END ......C=4.6, epsilon=0.01, gamma=2.8000000000000003; total time=  26.3s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  24.6s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  24.1s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  25.5s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  23.8s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  23.7s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  24.8s
+[CV] END ......C=1.0, epsilon=0.01, gamma=2.8000000000000003; total time=  25.5s
+[CV] END ......C=1.0, epsilon=0.01, gamma=2.8000000000000003; total time=  24.9s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  24.5s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  23.9s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=2.8000000000000003; total time=  25.5s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=2.8000000000000003; total time=  26.2s
+[CV] END ......C=4.6, epsilon=0.01, gamma=2.8000000000000003; total time=  26.2s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  22.6s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  23.1s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  23.7s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  24.9s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  24.4s
+[CV] END ......C=4.6, epsilon=0.01, gamma=2.8000000000000003; total time=  26.0s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  24.8s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  24.6s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=1.0; total time=  24.6s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  26.4s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  26.3s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=1.0; total time=  24.6s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=1.0; total time=  24.7s
+[CV] END ......C=1.0, epsilon=0.01, gamma=2.8000000000000003; total time=  26.4s
+[CV] END ......C=1.0, epsilon=0.01, gamma=2.8000000000000003; total time=  26.1s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=2.8000000000000003; total time=  25.2s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=2.8000000000000003; total time=  27.5s
+[CV] END ......C=4.6, epsilon=0.01, gamma=2.8000000000000003; total time=  26.7s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=  24.0s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=  23.3s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=  24.3s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=3.7; total time=  24.9s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  22.4s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  22.3s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=3.7; total time=  24.4s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=  24.3s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=3.7; total time=  23.7s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=  22.5s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=3.7; total time=  24.7s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=  23.4s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=3.7; total time=  23.9s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=3.7; total time=  24.5s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=  24.2s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=  23.1s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=  23.4s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=  23.4s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=  21.9s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=  21.2s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=  22.3s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  22.3s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  22.0s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=3.7; total time=  24.7s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=  23.1s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=3.7; total time=  24.1s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=3.7; total time=  22.9s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=  22.8s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=3.7; total time=  23.6s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=  23.8s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=3.7; total time=  24.0s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=3.7; total time=  24.0s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=  24.0s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=  24.1s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=  23.9s
+[CV] END ......C=0.1, epsilon=0.01, gamma=2.8000000000000003; total time=  22.5s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=  25.6s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=2.8000000000000003; total time=  22.7s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=2.8000000000000003; total time=  23.0s
+[CV] END ......C=3.7, epsilon=0.01, gamma=2.8000000000000003; total time=  22.3s
+[CV] END ......C=3.7, epsilon=0.01, gamma=2.8000000000000003; total time=  22.5s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=4.6; total time=  21.7s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=  22.5s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=4.6; total time=  22.5s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=4.6; total time=  22.4s
+[CV] END ......C=0.1, epsilon=0.01, gamma=2.8000000000000003; total time=  22.4s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=4.6; total time=  23.1s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=  22.5s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=4.6; total time=  22.9s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=4.6; total time=  24.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=  24.1s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=  24.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=  24.2s
+[CV] END ......C=0.1, epsilon=0.01, gamma=2.8000000000000003; total time=  23.8s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=2.8000000000000003; total time=  23.1s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=  24.0s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=2.8000000000000003; total time=  26.7s
+[CV] END ......C=3.7, epsilon=0.01, gamma=2.8000000000000003; total time=  29.5s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=4.6; total time=  28.6s
+[CV] END ......C=3.7, epsilon=0.01, gamma=2.8000000000000003; total time=  29.6s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=  30.0s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=4.6; total time=  31.9s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=4.6; total time=  32.5s
+[CV] END ......C=0.1, epsilon=0.01, gamma=2.8000000000000003; total time=  33.8s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=  34.7s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=4.6; total time=  35.8s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=  34.0s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=4.6; total time=  36.6s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=  34.6s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=4.6; total time=  35.9s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=  34.4s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=  36.5s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=  31.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=  26.9s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=  29.2s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search]  (thread 4) END OF THE JOB.
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=  27.0s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=  25.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=  25.9s
+ [multithread_grid_Search]  (thread 4) END OF THE JOB.
+ [multithread_grid_Search]  (thread 7) END OF THE JOB.
+ [multithread_grid_Search]  (thread 7) END OF THE JOB.
+ [multithread_grid_Search]  (thread 9) END OF THE JOB.
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=  21.3s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=  20.2s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search]  (thread 3) END OF THE JOB.
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=  20.1s
+ [multithread_grid_Search]  (thread 6) END OF THE JOB.
+ [multithread_grid_Search]  (thread 3) END OF THE JOB.
+ [multithread_grid_Search]  (thread 6) END OF THE JOB.
+ [multithread_grid_Search]  (thread 9) END OF THE JOB.
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=  16.9s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=  17.0s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=  15.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=1.0; total time=   9.1s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=1.0; total time=   9.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=1.0; total time=   8.4s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=1.0; total time=   8.0s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=1.0; total time=   8.2s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=1.0; total time=   8.5s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=1.0; total time=   7.4s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=1.0; total time=   7.3s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=1.0; total time=   7.6s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=1.0; total time=   7.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=1.0; total time=   7.6s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=1.0; total time=   7.6s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=   8.0s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=   7.9s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=   8.0s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=   7.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=   7.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=   8.1s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=   7.9s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=   7.7s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=3.7; total time=   8.3s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=   8.9s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=3.7; total time=   8.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=3.7; total time=   8.9s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=   8.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=   8.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=   7.9s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=   8.4s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=   8.3s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=   8.9s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=   7.8s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=   8.7s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=4.6; total time=   7.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=   7.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=4.6; total time=   8.5s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=4.6; total time=   8.5s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   7.9s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   8.8s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   8.8s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   9.4s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   9.9s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   8.8s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=  10.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   9.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   9.0s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   8.9s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   9.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=1.0; total time=   8.6s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   9.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=1.0; total time=   8.6s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=1.0; total time=   7.9s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=1.0; total time=   7.4s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=1.0; total time=   7.6s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=1.0; total time=   6.7s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=1.0; total time=   7.5s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=1.0; total time=   6.9s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=1.0; total time=   7.0s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=1.0; total time=   7.4s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=1.0; total time=   8.0s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=   8.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=1.0; total time=   7.6s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=   7.9s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=   8.1s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=   7.8s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=   8.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=   8.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=   8.5s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=   7.9s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=3.7; total time=   8.4s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=   8.1s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=3.7; total time=   8.6s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=   8.0s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=3.7; total time=   8.5s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=   8.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=   8.6s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=   8.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=   8.2s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=   9.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=   7.9s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=   8.6s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=4.6; total time=   8.3s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=   9.1s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=4.6; total time=   9.1s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=4.6; total time=   9.2s
+ [multithread_grid_Search]  (thread 5) END OF THE JOB.
+ [multithread_grid_Search]  (thread 8) END OF THE JOB.
+ [multithread_grid_Search]  (thread 5) END OF THE JOB.
+ [multithread_grid_Search]  (thread 2) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  24
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 2 launching 3 threads for 24 combination (max is 8)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 2) END OF THE JOB.
+ [multithread_grid_Search]  (thread 8) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  24
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 2 launching 3 threads for 24 combination (max is 8)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 8 combinations to test
+Fitting 2 folds for each of 8 candidates, totalling 16 fits
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=   6.7s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=   6.7s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=   7.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=   6.6s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=   6.9s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=   7.4s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=   6.9s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=   7.1s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=   7.9s
+[CV] END ......................C=0.1, epsilon=0.0, gamma=0.1; total time=   7.2s
+[CV] END ......................C=3.7, epsilon=0.0, gamma=0.1; total time=   7.3s
+[CV] END .......C=1.9000000000000001, epsilon=0.0, gamma=0.1; total time=   7.5s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=   7.3s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=   7.2s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=   7.3s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=   6.4s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=   6.9s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=   7.0s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=   7.0s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=   6.8s
+[CV] END .......C=3.7, epsilon=0.0, gamma=1.9000000000000001; total time=   6.6s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=   7.5s
+[CV] END .......C=0.1, epsilon=0.0, gamma=1.9000000000000001; total time=   7.1s
+[CV] END C=1.9000000000000001, epsilon=0.0, gamma=1.9000000000000001; total time=   7.5s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=   6.9s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=   6.9s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=   6.6s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=   7.0s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=   6.8s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=   7.3s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=   6.7s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=   6.9s
+[CV] END .....................C=3.7, epsilon=0.01, gamma=0.1; total time=   6.3s
+[CV] END .....................C=0.1, epsilon=0.01, gamma=0.1; total time=   6.4s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=   7.2s
+[CV] END ......C=1.9000000000000001, epsilon=0.01, gamma=0.1; total time=   6.9s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=   6.5s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=   6.8s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=   6.6s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=   7.4s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=   8.4s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=  10.1s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=  10.5s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  10.7s
+[CV] END ......C=3.7, epsilon=0.01, gamma=1.9000000000000001; total time=  10.5s
+[CV] END ......C=0.1, epsilon=0.01, gamma=1.9000000000000001; total time=   9.9s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=   9.8s
+[CV] END C=1.9000000000000001, epsilon=0.01, gamma=1.9000000000000001; total time=   8.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   7.2s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   6.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   7.7s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   7.5s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   8.1s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   8.8s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   8.7s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   8.3s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   8.6s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   8.2s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   7.9s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=   7.3s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=   7.7s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   8.5s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=   7.8s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=   7.2s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=   7.0s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=   7.1s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=   7.5s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=   7.7s
+[CV] END .......C=4.6, epsilon=0.0, gamma=1.9000000000000001; total time=   8.0s
+[CV] END .......C=1.0, epsilon=0.0, gamma=1.9000000000000001; total time=   7.7s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=   8.4s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   7.9s
+[CV] END C=2.8000000000000003, epsilon=0.0, gamma=1.9000000000000001; total time=   9.2s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   9.2s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   8.5s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   8.9s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   7.9s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   9.0s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   9.8s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=  10.2s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=  11.3s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=  10.8s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=  10.5s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=   8.4s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=   6.8s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=   6.7s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   7.3s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=   7.3s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=   7.0s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=   6.3s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=   7.2s
+[CV] END ......C=1.0, epsilon=0.01, gamma=1.9000000000000001; total time=   7.1s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=   8.4s
+[CV] END ......C=4.6, epsilon=0.01, gamma=1.9000000000000001; total time=   8.0s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=   8.2s
+[CV] END C=2.8000000000000003, epsilon=0.01, gamma=1.9000000000000001; total time=   8.7s
+ [multithread_grid_Search]  (thread 3) END OF THE JOB.
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search]  (thread 3) END OF THE JOB.
+ [multithread_grid_Search]  (thread 2) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  6
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 3 launching 1 threads for 6 combination (max is 8)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 6 combinations to test
+Fitting 2 folds for each of 6 candidates, totalling 12 fits
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   2.6s
+ [multithread_grid_Search]  (thread 2) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  6
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 3 launching 1 threads for 6 combination (max is 8)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 6 combinations to test
+Fitting 2 folds for each of 6 candidates, totalling 12 fits
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   2.9s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   2.8s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   2.3s
+[CV] END ......................C=1.0, epsilon=0.0, gamma=0.1; total time=   2.3s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   2.7s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   2.6s
+[CV] END .....................C=1.0, epsilon=0.01, gamma=0.1; total time=   2.2s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   2.2s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   2.1s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   2.2s
+[CV] END .......C=2.8000000000000003, epsilon=0.0, gamma=0.1; total time=   3.1s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   3.3s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   2.5s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   2.9s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   3.8s
+[CV] END ......C=2.8000000000000003, epsilon=0.01, gamma=0.1; total time=   3.8s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   4.0s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   4.0s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   2.5s
+[CV] END ......................C=4.6, epsilon=0.0, gamma=0.1; total time=   2.7s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   2.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   2.2s
+[CV] END .....................C=4.6, epsilon=0.01, gamma=0.1; total time=   2.4s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  1
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 2) SAVING MODEL
+ [multiout_grid_search]  (thread 2) STOP
+ [multithread_grid_Search]  (thread 1) END OF THE JOB.
+ [multithread_grid_Search] n combinations:  1
+ [multithread_grid_Search] max combinations:  8
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 1) SAVING MODEL
+ [multiout_grid_search]  (thread 1) STOP
+model search OK
+params:  [{'C': 4.6, 'gamma': 0.1, 'epsilon': 0.0}, {'C': 4.6, 'gamma': 0.1, 'epsilon': 0.0}]
+done in 766.8s
+final training ...
+ [multithread_SVR_learning]  starting 2 threads ...
+ [multithread_SVR_learning]  (thread 1) starting the SVR trainig phase ...
+ [multithread_SVR_learning] waiting for threads ...
+ [multithread_SVR_learning]  (thread 2) starting the SVR trainig phase ...
+ [multithread_SVR_learning]  (thread 1) training completed in 80.1959547996521s
+ [multithread_SVR_learning]  (thread 2) training completed in 81.59422445297241s
+ [multithread_SVR_learning] end of the training process in 81.59526658058167s
+done in 81.6s
+final training OK
+saving learners...
+--- longitude :  ../results/LM_long_data.sav
+done in 0.08s
+--- latitude :  ../results/LM_lat_data.sav
+done in 0.11s
+learners saved OK

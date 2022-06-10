@@ -81,14 +81,14 @@ figt, axt = plt.subplots( nrows=2 )
 figt.suptitle( "Alpha Coefficients of SVR" )
 
 axt[0].grid( True )
-axt[0].plot( [-250, X_tr.shape[0]*1.05], [LM_long.C, LM_long.C], '--y' )
-axt[0].plot( [-250, X_tr.shape[0]*1.05], [-LM_long.C, -LM_long.C], '--y' )
+# axt[0].plot( [-250, X_tr.shape[0]*1.05], [LM_long.C, LM_long.C], '--y' )
+# axt[0].plot( [-250, X_tr.shape[0]*1.05], [-LM_long.C, -LM_long.C], '--y' )
 axt[0].set_title( f"Longitude ({LM_long.dual_coef_.shape[1]} samples out of {X_tr.shape[0]} trainig samples -- C={LM_lat.C} eps={LM_lat.epsilon})" )
 axt[0].plot( np.array( range( 0, LM_long.dual_coef_.shape[1] ) ), LM_long.dual_coef_[0, :], 'xb' )
 
 axt[1].grid( True )
-axt[1].plot( [-250, X_tr.shape[0]*1.05], [LM_lat.C, LM_lat.C], '--y' )
-axt[1].plot( [-250, X_tr.shape[0]*1.05], [-LM_lat.C, -LM_lat.C], '--y' )
+# axt[1].plot( [-250, X_tr.shape[0]*1.05], [LM_lat.C, LM_lat.C], '--y' )
+# axt[1].plot( [-250, X_tr.shape[0]*1.05], [-LM_lat.C, -LM_lat.C], '--y' )
 axt[1].set_title( f"Latitude ({LM_lat.dual_coef_.shape[1]} samples out of {X_tr.shape[0]} trainig samples -- C={LM_long.C} eps={LM_long.epsilon})" )
 axt[1].plot( np.array( range( 0, LM_lat.dual_coef_.shape[1] ) ), LM_lat.dual_coef_[0, :], 'xb' )
 

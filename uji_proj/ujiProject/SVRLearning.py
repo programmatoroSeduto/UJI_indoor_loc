@@ -116,6 +116,8 @@ class multithread_grid_search:
         Note:
             the arrays C, gamma and eps have the same length.
         '''
+        tmu = time_utils( )
+
         # returns the sorted unique elements of the C,gamma and eps array
         C = np.unique( C )
         gamma = np.unique( gamma )
@@ -145,6 +147,7 @@ class multithread_grid_search:
         #print( " [multithread_grid_Search] ", f"(thread {idx+1}) combinations: \nC={C}\ngamma={gamma}\neps={eps}" )
 
         print( " [multithread_grid_Search] ", f"(thread {idx+1}) JOB BEGINNING, {C.shape[0]*gamma.shape[0]*eps.shape[0]} combinations to test" )
+        tmu.start( )
         H_params = model_selection.GridSearchCV( 
             estimator  = svm.SVR( kernel='rbf' ),
             param_grid = svr_param,
@@ -152,12 +155,13 @@ class multithread_grid_search:
             cv         = 2,
             verbose    = ( 2 if verbose else 0 )
         ).fit( self.__X_train, self.__y_train )
+        tmu.stop( print_val=False )
 
         # save the combination of parameters
         #                       RACE CONDITIONS??????
         self.__return_space[idx] = H_params
         
-        print( " [multithread_grid_Search] ", f"(thread {idx+1}) END OF THE JOB."  )
+        print( " [multithread_grid_Search] ", f"(thread {idx+1}) END OF THE JOB in {tmu.value}s"  )
 
 
     def search_model( self, X, y, perc_train=.25, perc_test=.10, n_cross_val=2, verbose=False ):
