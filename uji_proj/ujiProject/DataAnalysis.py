@@ -47,6 +47,12 @@ print( "Validation Set Samples: ", Ds_tt.shape[0] )
 '''
 
 
+''' PREDICTION
+ym_long = LM_long.predict( X_tt )
+ym_lat = LM_lat.predict( X_tt )
+'''
+
+
 
 ## PRIMA FUNZIONE DA IPLEMENTARE
 
@@ -102,14 +108,6 @@ def plot_simple_map( long, lat, marker='x', set_grid=True, title="Simple Map", o
 
     # save the figure
     plt.savefig( outpath )
-
-
-''' PREDICTION
-ym_long = LM_long.predict( X_tt )
-ym_lat = LM_lat.predict( X_tt )
-'''
-
-
 
 ## TERZA FUNZIONE -- COMPARISON BTW ORIGINAL MAP AND MACHINE OUTPUT 
 

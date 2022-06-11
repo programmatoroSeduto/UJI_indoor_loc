@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 
 # main frameworks
+from turtle import shape
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -15,6 +16,7 @@ import sklearn.svm as svm
 
 # UJI files
 from ujiProject import paths as uji_paths
+from ujiProject.DataAnalysis import alpha_coefficients_SVR, area_coverage_predict, area_coverage_test, area_coverage_train, original_vs_machine_out, plot_simple_map, scatter_plot_SVR
 # from ujiProject.DataAnalysis import *
 from ujiProject.DataPreparation import *
 from ujiProject.SVRLearning import *
@@ -50,6 +52,9 @@ if __name__ == "__main__":
 	# ds_tt = data_loader( empty_class=True )
 	print( "loading OK" )
 	tmu.stop( )
+	
+	# plotting a map long - lat
+	plot_simple_map( ds_tr.ds[:,520], ds_tr.ds[:,521] )
 
 	# find the scaler for the normalization
 	tmu.start( )
@@ -114,6 +119,26 @@ if __name__ == "__main__":
 	lm_lat = lm[1]
 	tmu.stop( )
 	print( "final training OK" )
+
+	# plotting the alpha coefficients
+	lm = [lm_long, lm_lat]
+	alpha_coefficients_SVR(ds_tr.X, lm )
+
+	# comparison between original map and machine output 
+	y_tt_pred_long = lm[0].predict(ds_tt.X)
+	y_tt_pred_lat = lm[1].predict(ds_tt.X)
+	original_vs_machine_out( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
+	
+
+	# scatter plot
+	scatter_plot_SVR( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
+	
+	# coverage areas 
+	area_coverage_train(ds_tr.ds , 6 , 3 , np.inf )
+	area_coverage_test( ds_tt.ds , 6 , 3 , 90 )
+	area_coverage_predict( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat, 6 , 3 , 90 )
+	
+	sys.exit()
 
 	print( "saving learners..." )
 	tmu.start( )
