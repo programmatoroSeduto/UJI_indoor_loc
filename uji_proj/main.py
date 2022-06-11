@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 import time
+import os
 
 # sciKitLearn
 import sklearn.svm as svm
@@ -26,6 +27,9 @@ import pickle as pk
 import time 
 
 if __name__ == "__main__":
+	# set max priority
+	os.nice( 19 )
+
 	# timer
 	tmu = time_utils( )
 
@@ -75,7 +79,6 @@ if __name__ == "__main__":
 
 	# save the datasets before starting the work
 	tmu.start( )
-	'''
 	print( "writing data on files..." )
 	ds_tr.save_data( uji_paths.results_path, "tr_", index=False, add_timestamp=False )
 	ds_tt.save_data( uji_paths.results_path, "tt_", index=False, add_timestamp=False )
@@ -83,19 +86,21 @@ if __name__ == "__main__":
 	ds_tr.save_data_on_file( uji_paths.results_path + "/ds_tr.sav" )
 	ds_tt.save_data_on_file( uji_paths.results_path + "/ds_tt.sav" )
 	print( "files OK" )
-	'''
 	tmu.stop( )
 	
 	# model search
 	tmu.start( )
 	print( "MODEL SEARCH" )
+	C = np.array( [1, 2, 3, 4] ) 
 	# C = np.arange( 0.1, 5, 0.9 )
-	C = np.logspace( -4, 3, 15 )
+	# C = np.logspace( -4, 3, 15 )
+	gamma = np.array( [3, 4] )
 	# gamma = np.arange( 0.1, 5, 0.9 )
-	gamma  = np.logspace( -4, 3, 15 )
-	epsilon = np.array( [0, 0.01] )
+	# gamma  = np.logspace( -4, 3, 15 )
+	epsilon = np.array( [5, 0] )
+	# epsilon = np.array( [0, 0.01] )
 	mo = multiout_grid_search( )
-	mo.search( ds_tr.X, ds_tr.Y, C, gamma, epsilon, 50 )
+	mo.search( ds_tr.X, ds_tr.Y, C, gamma, epsilon, n_comb=4 )
 	print( "model search OK" )
 	print( "params: ", mo.params )
 	tmu.stop( )
