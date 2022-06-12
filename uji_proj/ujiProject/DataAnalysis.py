@@ -2,7 +2,7 @@
 
 import numpy as np
 import matplotlib as mpl
-mpl.rcParams['figure.figsize'] = (15, 7)
+mpl.rcParams['figure.figsize'] = (10, 10)
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -50,6 +50,22 @@ print( "Validation Set Samples: ", Ds_tt.shape[0] )
 ym_long = LM_long.predict( X_tt )
 ym_lat = LM_lat.predict( X_tt )
 '''
+
+
+
+def set_fig_scale( abs_scale ):
+    ''' set the matplotlib low level scale.
+    
+    Note:
+        calling this method is the same that giving measures
+        ( abs_scale, abs_scale ). 
+    '''
+
+    mpl.rcParams['figure.figsize'] = ( abs_scale, abs_scale )
+
+
+def set_fig_res( rx, ry ):
+    mpl.rcParams['figure.figsize'] = ( rx, ry )
 
 
 
@@ -146,36 +162,64 @@ def original_vs_machine_out(y_tt, ym_long, ym_lat, outpath = "or_vs_machine_outp
 
 ## QUARTA FUNZIONE -- SCATTER PLOT PER SVR 
 
-def scatter_plot_SVR(y_tt, ym_long, ym_lat, outpath = "scatter_plot_SVR.png"):
+def scatter_simple( ax, y1, y2, smin, smax, xlabel="", ylabel="", title="", use_grid=True ):
+    '''draw a scatter plot on a given axes object
+    
+    '''
+
+    ax.set_title( title )
+    ax.grid( use_grid )
+    ax.plot( smin, smax, '--b' )
+    ax.plot( y1, y2, 'xr' )
+    ax.set_xlabel( xlabel )
+    ax.set_ylabel( ylabel )
+
+
+def scatter_plot_SVR(y_tt, ym_long, ym_lat, outpath="scatter_plot_SVR.png"):
     '''Scatter Plot for SVR
+
     '''
 
     # MATPLOTLIB figure and axes 
-    fig3, ax3 = plt.subplots( ncols = 2 )
+    fig, ax = plt.subplots( ncols = 2 )
 
     
     sc_minmax = list() 
     sc_minmax.append( [np.min(y_tt[:, 0]), np.max(y_tt[:, 0])] )
     sc_minmax.append( [np.min(y_tt[:, 1]), np.max(y_tt[:, 1])] )
-    print( sc_minmax )
+    # print( sc_minmax )
 
-    fig3.suptitle( "Scatter Plots for Longitude and Latitude" )
+    fig.suptitle( "Scatter Plots for Longitude and Latitude" )
 
     # scatter plot for longitude
-    ax3[0].set_title( "Longitude" )
-    ax3[0].grid( True )
-    ax3[0].plot( sc_minmax[0], sc_minmax[0], '--b' )
-    ax3[0].plot( y_tt[:, 0], ym_long, 'xr' )
-    ax3[0].set_xlabel( "real longitude" )
-    ax3[0].set_ylabel( "predicted longitude" )
+    scatter_simple( ax[0], 
+        y_tt[:, 0], ym_long, 
+        smin=sc_minmax[0], smax=sc_minmax[0], 
+        xlabel="real longitude", ylabel="predicted longitude", 
+        title="longitude" )
+    '''
+    ax[0].set_title( "Longitude" )
+    ax[0].grid( True )
+    ax[0].plot( sc_minmax[0], sc_minmax[0], '--b' )
+    ax[0].plot( y_tt[:, 0], ym_long, 'xr' )
+    ax[0].set_xlabel( "real longitude" )
+    ax[0].set_ylabel( "predicted longitude" )
+    '''
 
     # scatter plot for latitude
-    ax3[1].set_title( "Latitude" )
-    ax3[1].grid( True )
-    ax3[1].plot( sc_minmax[1], sc_minmax[1], '--b' )
-    ax3[1].plot( y_tt[:, 1], ym_lat, 'xr' )
-    ax3[1].set_xlabel( "real latitude" )
-    ax3[1].set_ylabel( "predicted latitude" )
+    scatter_simple( ax[1], 
+        y_tt[:, 1], ym_lat, 
+        smin=sc_minmax[1], smax=sc_minmax[1], 
+        xlabel="real latitude", ylabel="predicted latitude", 
+        title="latitude" )
+    '''
+    ax[1].set_title( "Latitude" )
+    ax[1].grid( True )
+    ax[1].plot( sc_minmax[1], sc_minmax[1], '--b' )
+    ax[1].plot( y_tt[:, 1], ym_lat, 'xr' )
+    ax[1].set_xlabel( "real latitude" )
+    ax[1].set_ylabel( "predicted latitude" )
+    '''
 
     # save the figure
     plt.savefig( outpath )

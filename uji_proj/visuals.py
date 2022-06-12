@@ -9,7 +9,7 @@ import sklearn.svm as svm
 
 # UJI files
 from ujiProject import paths as uji_paths
-from ujiProject.DataAnalysis import *
+import ujiProject.DataAnalysis as vs
 from ujiProject.DataPreparation import *
 from ujiProject.time_utils import time_utils
 
@@ -28,6 +28,7 @@ if __name__ == "__main__":
     tmu = time_utils( )
 
     # === LOADING PHASE
+    print( "=== LOADING PHASE ===" )
 
     # data loading
     print( "[visuals] ", "loading data from files..." )
@@ -61,13 +62,46 @@ if __name__ == "__main__":
     # predictions
     print( "[visuals] ", f"generating predictions ..." )
     tmu.start( )
-    y_tt_pred_long = lm[0].predict(ds_tt.X)
-    y_tt_pred_lat = lm[1].predict(ds_tt.X)
+    ym_long = lm[0].predict(ds_tt.X)
+    ym_lat = lm[1].predict(ds_tt.X)
     tmu.stop( False )
     print( "[visuals] ", f"generating predictions ... OK", f" in {np.round(tmu.value, 1)}s" )
 
 
 
     # === GRAPHS GENERATIONS PHASE
+    print( "=== GRAPHS GENERATIONS PHASE ===" )
+    scale = 15
+    print( "using scale: ", scale )
+    vs.set_fig_scale( scale )
 
-    
+    # simple map
+    print( "[visuals] ", f"simple data maps ..." )
+    tmu.start( )
+    vs.plot_simple_map( ds_tr.Y[:, 0], ds_tr.Y[:, 1], title="Simple Map -- training set", outpath="../visuals/tr_map.png" )
+    vs.plot_simple_map( ds_tt.Y[:, 0], ds_tt.Y[:, 1], title="Simple Map -- validation set", outpath="../visuals/tt_map.png" )
+    tmu.stop( False )
+    print( "[visuals] ", f"simple data maps ... OK", f" in {np.round(tmu.value, 1)}s" )
+
+    # scatter plots
+    print( "[visuals] ", f"scatter plot ..." )
+    tmu.start( )
+    vs.set_fig_res( 15, 7 )
+    vs.scatter_plot_SVR( ds_tt.Y, ym_long, ym_lat, outpath="../visuals/scatter.png" )
+    vs.set_fig_scale( scale )
+    tmu.stop( False )
+    print( "[visuals] ", f"scatter plot ... OK", f" in {np.round(tmu.value, 1)}s" )
+
+    # real output Vs prediction
+
+
+    # SVR coefficients
+
+
+    # training set coverage (see slides)
+
+
+    # precision 
+
+
+    # test set drift 
