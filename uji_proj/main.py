@@ -16,7 +16,7 @@ import sklearn.svm as svm
 
 # UJI files
 from ujiProject import paths as uji_paths
-from ujiProject.DataAnalysis import alpha_coefficients_SVR, area_coverage_predict, area_coverage_test, area_coverage_train, original_vs_machine_out, plot_simple_map, scatter_plot_SVR
+from ujiProject.DataAnalysis import alpha_coefficients_SVR, area_coverage_predict, area_coverage_test, area_coverage_train, classify_thresh_coverage, coverage_analysis_wap_detected, learning_quality, original_vs_machine_out, plot_simple_map, scatter_plot_SVR
 # from ujiProject.DataAnalysis import *
 from ujiProject.DataPreparation import *
 from ujiProject.SVRLearning import *
@@ -138,6 +138,11 @@ if __name__ == "__main__":
 	area_coverage_test( ds_tt.ds , 6 , 3 , 90 )
 	area_coverage_predict( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat, 6 , 3 , 90 )
 	
+	# Analysis 
+	learning_quality( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
+	coverage_analysis_wap_detected(10, ds_tt.ds, y_tt_pred_long, y_tt_pred_lat )
+	classify_thresh_coverage( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
+
 	sys.exit()
 
 	print( "saving learners..." )
