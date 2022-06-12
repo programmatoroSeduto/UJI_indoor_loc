@@ -1,13 +1,11 @@
 #! /usr/bin/python3
 
 # main frameworks
-from turtle import shape
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 
-import time
 import os
 
 # sciKitLearn
@@ -16,17 +14,16 @@ import sklearn.svm as svm
 
 # UJI files
 from ujiProject import paths as uji_paths
-from ujiProject.DataAnalysis import alpha_coefficients_SVR, area_coverage_predict, area_coverage_test, area_coverage_train, classify_thresh_coverage, coverage_analysis_wap_detected, learning_quality, original_vs_machine_out, plot_simple_map, scatter_plot_SVR
-# from ujiProject.DataAnalysis import *
+from ujiProject.DataAnalysis import *
 from ujiProject.DataPreparation import *
 from ujiProject.SVRLearning import *
-from ujiProject.time_utils import time_utils
 
 # per il salvataggio del modello su file
 import pickle as pk
 
 # per calcolare il tempo di esecuzione 
 import time 
+from ujiProject.time_utils import time_utils
 
 if __name__ == "__main__":
 	# set max priority
@@ -120,31 +117,7 @@ if __name__ == "__main__":
 	tmu.stop( )
 	print( "final training OK" )
 
-	# plotting the alpha coefficients
-	lm = [lm_long, lm_lat]
-	alpha_coefficients_SVR(ds_tr.X, lm )
-
-	# comparison between original map and machine output 
-	y_tt_pred_long = lm[0].predict(ds_tt.X)
-	y_tt_pred_lat = lm[1].predict(ds_tt.X)
-	original_vs_machine_out( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
-	
-
-	# scatter plot
-	scatter_plot_SVR( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
-	
-	# coverage areas 
-	area_coverage_train(ds_tr.ds , 6 , 3 , np.inf )
-	area_coverage_test( ds_tt.ds , 6 , 3 , 90 )
-	area_coverage_predict( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat, 6 , 3 , 90 )
-	
-	# Analysis 
-	learning_quality( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
-	coverage_analysis_wap_detected(10, ds_tt.ds, y_tt_pred_long, y_tt_pred_lat )
-	classify_thresh_coverage( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
-
-	sys.exit()
-
+	# save learner machines
 	print( "saving learners..." )
 	tmu.start( )
 	print( "--- longitude : ", uji_paths.results_path + '/LM_long_data.sav' )
@@ -157,4 +130,26 @@ if __name__ == "__main__":
 		pk.dump( lm_lat, fil )
 	tmu.stop( )
 	print( "learners saved OK" )
+
+	# plotting the alpha coefficients
+	lm = [lm_long, lm_lat]
+	alpha_coefficients_SVR(ds_tr.X, lm )
+
+	# comparison between original map and machine output 
+	y_tt_pred_long = lm[0].predict(ds_tt.X)
+	y_tt_pred_lat = lm[1].predict(ds_tt.X)
+	original_vs_machine_out( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
+	
+	# scatter plot
+	scatter_plot_SVR( ds_tt.Y , y_tt_pred_long , y_tt_pred_lat )
+	
+	# coverage areas 
+	area_coverage_train(ds_tr.ds , 6 , 3 , np.inf )
+	area_coverage_test( ds_tt.ds , 6 , 3 , 90 )
+	area_coverage_predict( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat, 6 , 3 , 90 )
+	
+	# Analysis 
+	learning_quality( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
+	coverage_analysis_wap_detected(10, ds_tt.ds, y_tt_pred_long, y_tt_pred_lat )
+	classify_thresh_coverage( ds_tt.ds , y_tt_pred_long , y_tt_pred_lat )
 

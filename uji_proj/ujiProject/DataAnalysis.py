@@ -2,7 +2,6 @@
 
 import numpy as np
 import matplotlib as mpl
-
 mpl.rcParams['figure.figsize'] = (15, 7)
 
 import matplotlib.pyplot as plt

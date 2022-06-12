@@ -14,4 +14,7 @@ path_validation_set = data_path + "/" + name_validation_set
 # main path of the results
 results_path = '../results'
 
+# main path for the graphs
+graph_path = '../visuals/'
+
 # ...
