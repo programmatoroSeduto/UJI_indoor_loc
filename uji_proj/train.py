@@ -14,16 +14,16 @@ if __name__ == "__main__":
 	tmu = time_utils( )
 
 	# training
-	'''
 	print( "training ..." )
 	tmu.start( )
 	make_training( )
 	tmu.stop( False )
 	print( f"training ... OK in {np.round(tmu.value, 1)}s" )
-	'''
 	
+	'''
 	print( "generating plots ..." )
 	tmu.start( )
 	make_visuals( )
 	tmu.stop( False )
-	print( f"generating plots ... OK in {np.round(tmu.value, 1)}s" )
+	print( "generating plots ... OK in {np.round(tmu.value, 1)}s" )
+	'''
