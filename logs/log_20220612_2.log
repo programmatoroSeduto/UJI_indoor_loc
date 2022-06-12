@@ -1,0 +1,262 @@
+training ...
+loading file:  ../dataset/TrainingData.csv
+loading file:  ../dataset/ValidationData.csv
+loading OK
+done in 0.8s
+Fitting the scaler...
+scaler fitting OK
+done in 0.04s
+selecting and shuffling data sets ...
+data split OK
+done in 0.23s
+Data normalization
+Data normalization OK
+done in 0.05s
+writing data on files...
+dump classes...
+files OK
+done in 11.11s
+MODEL SEARCH
+ [multiout_grid_search]  (thread 1) START
+ [multithread_grid_Search] n combinations:  25
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 2) START
+ [multithread_grid_Search] n combinations:  25
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 1 launching 5 threads for 25 combination (max is 5)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 4) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+ [multithread_grid_Search]  === ITERATION 1 launching 5 threads for 25 combination (max is 5)
+ [multithread_grid_Search]  (thread 5) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 2) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+ [multithread_grid_Search]  (thread 5) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 3) JOB BEGINNING, 5 combinations to test
+ [multithread_grid_Search]  (thread 4) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+[CV] END ..................C=0.0001, epsilon=0, gamma=0.0001; total time=   8.6s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=0.0001; total time=   8.9s
+[CV] END ..................C=1000.0, epsilon=0, gamma=0.0001; total time=   8.9s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=0.0001; total time=   9.2s
+[CV] END ..................C=1000.0, epsilon=0, gamma=0.0001; total time=   9.9s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=0.0001; total time=  10.2s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=0.0001; total time=  10.2s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=0.0001; total time=  11.1s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=0.0001; total time=  11.2s
+[CV] END ..................C=0.0001, epsilon=0, gamma=0.0001; total time=  11.4s
+[CV] END ..................C=0.0001, epsilon=0, gamma=0.0001; total time=   9.0s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=0.0001; total time=   9.1s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=0.0001; total time=   7.6s
+[CV] END ..................C=1000.0, epsilon=0, gamma=0.0001; total time=  10.0s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=0.0001; total time=   8.9s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=0.0001; total time=   9.1s
+[CV] END ..................C=0.0001, epsilon=0, gamma=0.0001; total time=   8.3s
+[CV] END ..................C=1000.0, epsilon=0, gamma=0.0001; total time=  10.3s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=0.0001; total time=  13.0s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=0.0001; total time=  12.0s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.005623413251903491; total time=   8.3s
+[CV] END ....C=0.0001, epsilon=0, gamma=0.005623413251903491; total time=   9.6s
+[CV] END ....C=0.0001, epsilon=0, gamma=0.005623413251903491; total time=   7.8s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.005623413251903491; total time=   9.3s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.005623413251903491; total time=   8.8s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.005623413251903491; total time=   9.7s
+[CV] END ....C=1000.0, epsilon=0, gamma=0.005623413251903491; total time=  12.1s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.005623413251903491; total time=   8.4s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.005623413251903491; total time=   9.8s
+[CV] END ....C=1000.0, epsilon=0, gamma=0.005623413251903491; total time=  12.0s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.005623413251903491; total time=   8.1s
+[CV] END ....C=0.0001, epsilon=0, gamma=0.005623413251903491; total time=   9.1s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.005623413251903491; total time=   8.7s
+[CV] END ....C=0.0001, epsilon=0, gamma=0.005623413251903491; total time=   8.9s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.005623413251903491; total time=   9.6s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.005623413251903491; total time=   8.9s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.005623413251903491; total time=   8.0s
+[CV] END ....C=1000.0, epsilon=0, gamma=0.005623413251903491; total time=  10.6s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.005623413251903491; total time=   9.8s
+[CV] END ....C=1000.0, epsilon=0, gamma=0.005623413251903491; total time=   9.5s
+[CV] END .....C=0.0001, epsilon=0, gamma=0.31622776601683794; total time=   8.4s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.31622776601683794; total time=   8.9s
+[CV] END .....C=0.0001, epsilon=0, gamma=0.31622776601683794; total time=   9.9s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.31622776601683794; total time=  10.2s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.31622776601683794; total time=  10.9s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.31622776601683794; total time=   7.4s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.31622776601683794; total time=  10.0s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.31622776601683794; total time=   8.8s
+[CV] END .....C=1000.0, epsilon=0, gamma=0.31622776601683794; total time=   9.1s
+[CV] END .....C=1000.0, epsilon=0, gamma=0.31622776601683794; total time=   9.3s
+[CV] END .....C=0.0001, epsilon=0, gamma=0.31622776601683794; total time=   8.6s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.31622776601683794; total time=   8.4s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.31622776601683794; total time=   8.3s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.31622776601683794; total time=   8.4s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=0.31622776601683794; total time=   9.3s
+[CV] END .....C=0.0001, epsilon=0, gamma=0.31622776601683794; total time=  10.5s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=0.31622776601683794; total time=  10.0s
+[CV] END C=17.78279410038923, epsilon=0, gamma=0.31622776601683794; total time=   9.2s
+[CV] END .....C=1000.0, epsilon=0, gamma=0.31622776601683794; total time=   9.7s
+[CV] END .....C=1000.0, epsilon=0, gamma=0.31622776601683794; total time=   9.4s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=17.78279410038923; total time=   9.1s
+[CV] END C=17.78279410038923, epsilon=0, gamma=17.78279410038923; total time=   8.3s
+[CV] END .......C=0.0001, epsilon=0, gamma=17.78279410038923; total time=  10.2s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=17.78279410038923; total time=   8.1s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=17.78279410038923; total time=   9.3s
+[CV] END .......C=0.0001, epsilon=0, gamma=17.78279410038923; total time=   8.9s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=17.78279410038923; total time=   9.6s
+[CV] END .......C=1000.0, epsilon=0, gamma=17.78279410038923; total time=   8.6s
+[CV] END .......C=1000.0, epsilon=0, gamma=17.78279410038923; total time=   8.7s
+[CV] END C=17.78279410038923, epsilon=0, gamma=17.78279410038923; total time=   9.8s
+[CV] END C=17.78279410038923, epsilon=0, gamma=17.78279410038923; total time=   8.9s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=17.78279410038923; total time=   9.9s
+[CV] END .......C=0.0001, epsilon=0, gamma=17.78279410038923; total time=   9.8s
+[CV] END .......C=0.0001, epsilon=0, gamma=17.78279410038923; total time=   8.7s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=17.78279410038923; total time=  11.0s
+[CV] END C=0.005623413251903491, epsilon=0, gamma=17.78279410038923; total time=   8.6s
+[CV] END C=0.31622776601683794, epsilon=0, gamma=17.78279410038923; total time=   9.8s
+[CV] END .......C=1000.0, epsilon=0, gamma=17.78279410038923; total time=   7.6s
+[CV] END .......C=1000.0, epsilon=0, gamma=17.78279410038923; total time=   9.3s
+[CV] END C=17.78279410038923, epsilon=0, gamma=17.78279410038923; total time=   9.4s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=1000.0; total time=   9.5s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=1000.0; total time=   9.8s
+[CV] END ..................C=0.0001, epsilon=0, gamma=1000.0; total time=   9.1s
+[CV] END ..................C=0.0001, epsilon=0, gamma=1000.0; total time=   9.1s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=1000.0; total time=   8.8s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=1000.0; total time=   9.6s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=1000.0; total time=  10.8s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=1000.0; total time=   8.0s
+[CV] END ..................C=1000.0, epsilon=0, gamma=1000.0; total time=  10.1s
+[CV] END ..................C=1000.0, epsilon=0, gamma=1000.0; total time=   9.4s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=1000.0; total time=   8.8s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=1000.0; total time=   8.7s
+[CV] END ..................C=0.0001, epsilon=0, gamma=1000.0; total time=   7.9s
+[CV] END ..................C=0.0001, epsilon=0, gamma=1000.0; total time=   9.3s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=1000.0; total time=   8.5s
+[CV] END .......C=17.78279410038923, epsilon=0, gamma=1000.0; total time=   7.0s
+[CV] END .....C=0.31622776601683794, epsilon=0, gamma=1000.0; total time=  10.4s
+[CV] END ....C=0.005623413251903491, epsilon=0, gamma=1000.0; total time=  10.4s
+[CV] END ..................C=1000.0, epsilon=0, gamma=1000.0; total time=  10.0s
+[CV] END ..................C=1000.0, epsilon=0, gamma=1000.0; total time=   9.2s
+ [multithread_grid_Search]  (thread 4) END OF THE JOB in 102.66163277626038s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB in 103.70751953125s
+ [multithread_grid_Search]  (thread 3) END OF THE JOB in 103.89208650588989s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB in 104.03152823448181s
+ [multithread_grid_Search]  (thread 2) END OF THE JOB in 104.11456823348999s
+ [multithread_grid_Search]  (thread 4) END OF THE JOB in 105.03674960136414s
+ [multithread_grid_Search]  (thread 2) END OF THE JOB in 105.29739117622375s
+ [multithread_grid_Search]  (thread 3) END OF THE JOB in 105.33535265922546s
+ [multithread_grid_Search]  (thread 5) END OF THE JOB in 107.18047046661377s
+ [multithread_grid_Search] n combinations:  5
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 2 launching 1 threads for 5 combination (max is 5)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+ [multithread_grid_Search]  (thread 5) END OF THE JOB in 107.82841515541077s
+ [multithread_grid_Search] n combinations:  5
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multithread_grid_Search]  === ITERATION 2 launching 1 threads for 5 combination (max is 5)
+ [multithread_grid_Search]  (thread 1) JOB BEGINNING, 5 combinations to test
+Fitting 2 folds for each of 5 candidates, totalling 10 fits
+[CV] END ..C=0.0001, epsilon=0.0, gamma=0.005623413251903491; total time=   1.8s
+[CV] END ..C=0.0001, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END ..C=0.0001, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END ..C=0.0001, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.005623413251903491, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.005623413251903491, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.005623413251903491, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.005623413251903491, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.31622776601683794, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.31622776601683794, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.31622776601683794, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=0.31622776601683794, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=17.78279410038923, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=17.78279410038923, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=17.78279410038923, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END C=17.78279410038923, epsilon=0.0, gamma=0.005623413251903491; total time=   1.9s
+[CV] END ..C=1000.0, epsilon=0.0, gamma=0.005623413251903491; total time=   2.2s
+[CV] END ..C=1000.0, epsilon=0.0, gamma=0.005623413251903491; total time=   2.5s
+[CV] END ..C=1000.0, epsilon=0.0, gamma=0.005623413251903491; total time=   2.3s
+[CV] END ..C=1000.0, epsilon=0.0, gamma=0.005623413251903491; total time=   2.8s
+ [multithread_grid_Search]  (thread 1) END OF THE JOB in 25.236621379852295s
+ [multithread_grid_Search] n combinations:  1
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 1) SAVING MODEL
+ [multiout_grid_search]  (thread 1) STOP
+ [multithread_grid_Search]  (thread 1) END OF THE JOB in 26.504589080810547s
+ [multithread_grid_Search] n combinations:  1
+ [multithread_grid_Search] max combinations:  5
+ [multithread_grid_Search] ready for the model search
+ [multiout_grid_search]  (thread 2) SAVING MODEL
+ [multiout_grid_search]  (thread 2) STOP
+model search OK
+params:  [{'C': 1000.0, 'gamma': 0.005623413251903491, 'epsilon': 0.0}, {'C': 1000.0, 'gamma': 0.005623413251903491, 'epsilon': 0.0}]
+done in 134.36s
+final training ...
+ [multithread_SVR_learning]  starting 2 threads ...
+ [multithread_SVR_learning]  (thread 1) starting the SVR trainig phase ...
+ [multithread_SVR_learning]  (thread 2) starting the SVR trainig phase ...
+ [multithread_SVR_learning] waiting for threads ...
+ [multithread_SVR_learning]  (thread 1) training completed in 118.313716173172s
+ [multithread_SVR_learning]  (thread 2) training completed in 134.85247564315796s
+ [multithread_SVR_learning] end of the training process in 134.852792263031s
+done in 134.85s
+final training OK
+saving learners...
+--- longitude :  ../results/LM_long_data.sav
+done in 0.48s
+--- latitude :  ../results/LM_lat_data.sav
+done in 0.46s
+learners saved OK
+training ... OK in 282.4s
+generating plots ...
+=== LOADING PHASE ===
+[visuals]  loading data from files...
+[visuals]  loading data from files... OK  in 2.0s
+--- DATA ---
+ Historical input values from training set   13956
+ Historical output values from training set  13956
+ Data taken for training =70.0%
+ Historical input values from test set   278
+ Historical output values from test set  278
+ Data taken for validation =30.0%
+--- DATA ---
+[visuals]  loading learners ...
+[visuals]  loading learners ... OK  in 0.0s
+[visuals]  generating predictions ...
+[visuals]  generating predictions ... OK  in 2.9s
+[visuals]  reverting normalization ...
+[visuals]  reverting normalization ... OK  in 0.0s
+=== GRAPHS GENERATIONS PHASE ===
+using scale:  15
+[visuals]  simple data maps ...
+[visuals]  simple data maps ... OK  in 0.5s
+[visuals]  plot SVR coefficients ...
+[visuals]  plot SVR coefficients ... OK  in 0.2s
+[visuals]  real output Vs prediction ...
+[visuals]  real output Vs prediction ... OK  in 0.1s
+[visuals]  scatter plot ...
+[visuals]  scatter plot ... OK  in 0.2s
+[visuals]  training set coverage ...
+[visuals]  training set coverage ... OK  in 5.7s
+[visuals]  plot precision ...
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+No handles with labels found to put in legend.
+[visuals]  plot precision... OK  in 2.8s
+generating plots ... OK in 14.5s
+=== DONE ===
+
