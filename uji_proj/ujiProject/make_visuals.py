@@ -165,12 +165,12 @@ def make_visuals( ):
         print_worst_cases=False, print_good=True, print_bad=True,
         subtitle="" )
       vs.plot_precision( ds_tt.Y, ym_long, ym_lat, 
-        max_distance=prec, outpath=f"../visuals/prec_{prec}m_drift.png",
-        print_worst_cases=True, print_good=False, print_bad=False,
-        subtitle="worst cases only" )
-      vs.plot_precision( ds_tt.Y, ym_long, ym_lat, 
         max_distance=prec, outpath=f"../visuals/prec_{prec}m.png",
         print_worst_cases=True, print_good=True, print_bad=True,
-        subtitle="with worst cases" )
+        subtitle="with worst cases (15 taken)", max_worst_cases=15 )
+      vs.plot_precision( ds_tt.Y, ym_long, ym_lat, 
+        max_distance=prec, outpath=f"../visuals/prec_drift.png",
+        print_worst_cases=True, print_good=False, print_bad=False,
+        subtitle="worst cases only (100 cases)", max_worst_cases=100 )
     tmu.stop( False )
     print( "[visuals] ", f"plot precision... OK", f" in {np.round(tmu.value, 1)}s" )
